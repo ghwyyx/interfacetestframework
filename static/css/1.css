@@ -1,0 +1,113 @@
+body{
+	margin:0px;
+}
+
+div#navone{
+	background-color:#96b97d;
+}
+
+li{
+	padding:10px 180px;
+	display: inline-block;
+
+}
+
+li#lione a{
+	color:#fff;
+}
+
+div.seconddiv div{
+	margin: 1%;
+	display:inline-flex;
+	width:80%;
+}
+
+div.seconddiv label.requestlabel{
+	margin-left:100px;
+	margin-right:15px;
+	width:180px;
+	text-align:right;
+}
+
+.urlclass{
+	height:30px;
+	width:80%;
+}
+
+.urlspan{
+	margin-left:100px;
+	margin-right:15px;
+	width:200px;
+	text-align:right;
+
+}
+.urlinput{
+	width:80%;
+	height:inherit;
+}
+
+.bodyclass{
+	height:300px;
+	width:100%;
+}
+.bodyspan{
+	margin-left:100px;
+	margin-right:15px;
+	width:200px;
+	text-align:right;
+}
+
+.textareaclass{
+	width:80%;
+	height:inherit;
+	resize:none;
+}
+.exceptclass{
+	height:30px;
+	width:80%;
+}
+
+.exceptspan{
+	margin-left:100px;
+	margin-right:15px;
+	width:200px;
+	text-align:right;
+
+}
+.exceptinput{
+	width:80%;
+	height:inherit;
+}
+.saveclass{
+	height:30px;
+	width:80%;
+}
+.saveinput{
+	margin-left:25%;
+	margin-right:15px;
+}
+
+.sendclass{
+	height:30px;
+	width:80%;
+}
+
+.sendbutton{
+	width:150px;
+	margin-left:30%;
+}
+
+.resultclass{
+	display: block; 
+	margin:5%;
+	width:75em;
+	height:50em;
+}
+
+.resultdata{
+	width:inherit;
+	height:inherit;
+	outline:none;
+	resize:none;
+	border: 0px;
+}

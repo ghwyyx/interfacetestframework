@@ -22,7 +22,8 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('',RedirectView.as_view(url="interface")),
     path('interface/', views.simple_interface, name='interface_id'),
-    path('interface/a.asp', views.simple_interface, name='interface_id'),
-    path('interface/b.asp', views.showinterfacelist, name='interface_list'),
-    path('interface/c.asp', views.showinterfaceresult, name='interface_result')
+    path('interface/a.html', views.simple_interface, name='interface_id'),
+    path('interface/b.html', views.showinterfacelist, name='interface_list'),
+    path('interface/c.html', views.showinterfaceresult, name='interface_result'),
+    path('showinterfacelist/', views.getinterfacelistdata),
 ]

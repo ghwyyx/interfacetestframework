@@ -45,4 +45,16 @@ def my_save(*args):
     InterfaceModel.objects.create(http_method=args[0],url=args[1],request_body=json.dumps(args[2]),expect_num=args[3])
 
 
-
+def getDataFromMongoDB():
+    dataModel = InterfaceModel.objects.all()
+    print(type(dataModel),dataModel[0].url,json.loads(dataModel[0].request_body))
+    print(InterfaceModel.objects.count())
+    jsonArray = []
+    for data in dataModel:
+        http_method=data.http_method
+        url = data.url
+        request_body = json.loads(data.request_body)
+        tmpData = {"methodtype":http_method,"methodurl":url,"methodbody":request_body}
+        jsonArray.append(tmpData)
+    print(type(json.dumps({"total": InterfaceModel.objects.count(), "rows": jsonArray})))
+    return {"total": InterfaceModel.objects.count(), "rows": jsonArray}

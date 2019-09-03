@@ -83,7 +83,7 @@ DATABASES = {
 }
 #连接MongoDB数据库
 from mongoengine import connect
-connect('gh',host='192.168.33.36',port=27017) # 连接数据库名称
+connect('gh',host='192.168.229.131',port=27017) # 连接数据库名称
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

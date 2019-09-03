@@ -2,17 +2,19 @@
 <html>
 <head>
 <title>请求</title>
-<link rel="stylesheet" href="../static/css/1.css">
-<script type="text/script" src="../static/js/common/jquery-3.4.1.min.js"></script>
-<script type="text/script" scr="../static/js/private/1.js"></script>
+<link rel="stylesheet" href="/static/css/1.css">
+<script type="text/script" src="/static/js/common/jquery-3.4.1.min.js"></script>
+<script type="text/script" scr="/static/js/private/1.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/demo/demo.css">
 </head>
 
-<body>
+<body style="font-size: 12px;">
 <div id="navone">
 <ul id="ulone">
-<li id="lione"><a href="./a.asp">请求</a></li>
-<li id="lione"><a href="./b.asp">接口列表</a></li>
-<li id="lione"><a href="./c.asp">请求结果</a></li>
+<li id="lione"><a href="./a.html">请求</a></li>
+<li id="lione"><a href="./b.html">接口列表</a></li>
+<li id="lione"><a href="./c.html">请求结果</a></li>
 </ul>
 </div>
 <div class="seconddiv" >

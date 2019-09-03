@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .backend import resultrequest,my_save
+from .backend import resultrequest,my_save,getDataFromMongoDB
+from django.http import JsonResponse
 import json
 
 # Create your views here.
@@ -19,10 +20,14 @@ def simple_interface(requests):
         else: print('不进行数据存储')
         result = resultrequest(requesttype=requestselect,requesturl=requesturl,requestbody=requestbody,returntotal=expectnumber)
         context = {'result':result}
-        return render(requests, 'c.asp', context)
+        return render(requests, 'c.html', context)
 
 def showinterfacelist(requests):
-    return render(requests,'b.asp')
+    # getDataFromMongoDB()
+    return render(requests,'b.html')
+
+def getinterfacelistdata(requests):
+    return JsonResponse(getDataFromMongoDB())
 
 def showinterfaceresult(requests):
-    return render(requests,'c.asp')
+    return render(requests,'c.html')

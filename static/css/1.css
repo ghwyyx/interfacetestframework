@@ -3,16 +3,20 @@ body{
 }
 
 div#navone{
-	background-color:#96b97d;
+	/*background-color:#96b97d;*/
+}
+
+ul#ulone{
+	margin-top: 0px;
 }
 
 li{
-	padding:10px 180px;
+	padding:0px 120px;
 	display: inline-block;
 }
 
 li#lione a{
-	color:#fff;
+	color:#000000;
 }
 
 div.seconddiv div{

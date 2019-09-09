@@ -2,42 +2,87 @@
 <html>
 <head>
 <title>接口列表</title>
-{#    <script type="text/script" src="../static/js/common/jquery-3.4.1.min.js"></script>#}
-
-    <link rel="stylesheet" href="/static/css/1.css">
-    <script type="text/script" scr="/static/js/private/1.js"></script>
-{#    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">#}
-{#    <meta name="keywords" content="jquery,ui,easy,easyui,web">#}
-{#	<meta name="description" content="easyui help you build your web page easily!">#}
+    <script type="text/javascript" scr="/static/js/private/a.js"></script>
 	<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/themes/default/easyui.css">
-{#	<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/themes/icon.css">#}
+	<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="/static/plugins/easyui/demo/demo.css">
 	<script type="text/javascript" src="/static/plugins/easyui/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="/static/plugins/easyui/jquery.easyui.min.js"></script>
-
+    <script type="text/javascript" src="/static/plugins/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="/static/css/1.css">
 
 </head>
 
 <body style="height:100%;">
-<div id="navone">
+<div id="navone" style="font-size: 15px">
 <ul id="ulone">
-<li id="lione"><a href="./a.html">请求</a></li>
-<li id="lione"><a href="./b.html">接口列表</a></li>
-<li id="lione"><a href="./c.html">请求结果</a></li>
+    <li id="lione"><a href="./a.html">请求</a></li>
+    <li id="lione"><a href="./b.html">接口列表</a></li>
+    <li id="lione"><a href="./c.html">请求结果</a></li>
+    <li id="lione"><a href="./d.html">批量执行结果</a></li>
 </ul>
 </div>
 <div>
     <table id="tt" class="easyui-datagrid" style="width:inherit;"
-			data-options="url:'/showinterfacelist/',idField:'itemid',pagination:'true',iconCls:'icon-save'">
+			data-options=
+                    "rownumbers:true,
+                    url:'/showinterfacelist/',
+                    method:'POST',
+                    idField:'methodname',
+                    pagination:true,
+                    selectOnCheck:false,
+                    checkOnSelect:false
+                    ">
 		<thead>
 			<tr>
 				<th field="ck" checkbox="true" width="5%"></th>
+                <th field="methodname" width="8%">接口名称</th>
 				<th field="methodtype" width="5%">请求类型</th>
 				<th field="methodurl" width="20%">请求接口</th>
-				<th field="methodbody" width="80%">请求数据</th>
+				<th field="methodbody" width="70%">请求数据</th>
 			</tr>
 		</thead>
 	</table>
 </div>
+<script>
+            $(function () {
+            var pager = $('#tt').datagrid('getPager');
+            pager.pagination({
+                buttons: [{
+                    text: "运行",
+                    handler: function () {
+                            var ss = [];
+                            var rows = $('#tt').datagrid('getChecked');
+                            for(var i=0;i<rows.length;i++){
+                                var row = rows[i];
+                                ss.push(row.methodname+";"+row.methodtype+";"+row.methodurl+";"+row.methodbody);
+                                {#ss.push(row);#}
+                            }
+                            $.ajax({
+                                url:"/dealallrequests/",
+                                data:{'stringData':ss},
+                                type:"post",
+                                dataType:"json",
+                                success:function (data) {
+                                    console.log("传递成功！！");
+                                    console.log(data);
+                                    document.location.href='d.html'
+                                }
+                            });
+                        }
+                }, {
+                    text: "删除",
+                    handler: function () {
+                        alert("删除");
+                    }
+                }, {
+                    text: "保存",
+                    handler: function () {
+                        alert("保存");
+                    }
+                }]
+            });
+        })
+    </script>
 </body>
 </html>

@@ -20,10 +20,12 @@ from interfacetestapp import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('',RedirectView.as_view(url="interface")),
+    path('', RedirectView.as_view(url="interface")),
     path('interface/', views.simple_interface, name='interface_id'),
     path('interface/a.html', views.simple_interface, name='interface_id'),
     path('interface/b.html', views.showinterfacelist, name='interface_list'),
     path('interface/c.html', views.showinterfaceresult, name='interface_result'),
-    path('showinterfacelist/', views.getinterfacelistdata),
+    path('showinterfacelist/', views.getinterfacelistdata, name='interface_data_list'),
+    path('dealallrequests/', views.dealallrequests, name='interface_deal_requests'),
+    path('interface/d.html', views.showallrequests, name='interface_show_deal_requests'),
 ]

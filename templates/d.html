@@ -28,12 +28,14 @@
 <div>
     <table title="批量执行结果浏览" style="width:700px;height:250px" data-options="
         url:'/dealallrequests/',
+        method:'POST',
         rownumbers:true,
-        idField:'methodname',
+        idField:'id',
         treeField:'name'
         ">
         <thead>
             <tr>
+                <th data-options="field:executeName" width="220">接口名称</th>
                 <th data-options="field:executeDate" width="220">执行日期</th>
                 <th data-options="field:executeResult" width="100">执行结果</th>
             </tr>

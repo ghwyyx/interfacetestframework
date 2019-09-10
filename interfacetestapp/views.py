@@ -43,7 +43,7 @@ def dealallrequests(requests):
         ttData = {'total':len(requests.POST.getlist('stringData[]')),'rows':dealmanyreqests(requests.POST.getlist('stringData[]'))}
         return JsonResponse(ttData)
     elif requests.method == 'GET':
-        pass
+        return JsonResponse({'status':200})
 
 # 展示批处理结果
 def showallrequests(requests):

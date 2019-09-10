@@ -3,8 +3,9 @@
 
 import requests,json
 from .models import InterfaceModel
-from datetime import datetime
+import time
 
+requests.packages.urllib3.disable_warnings()
 
 def resultrequest(requesttype,requesturl,requestbody):
     if requesttype == 'GET':
@@ -49,9 +50,7 @@ def dealmanyreqests(data):
     tmpArray = []
     for req in data:
         tmpData = req.split(';')
-        print(resultrequest(tmpData[1], tmpData[2], tmpData[3]))
         secondTmpData = resultrequest(tmpData[1], tmpData[2], tmpData[3])
-        print(datetime.now())
-        tmpDictData = {'executeDate': datetime.now(), 'executeResult': secondTmpData['header']['repmsg']}
+        tmpDictData = {'executeDate': time.strftime('%Y-%m-%m %H:%M:%S', time.localtime()), 'executeResult': secondTmpData['header']['repmsg']}
         tmpArray.append(tmpDictData)
     return tmpArray

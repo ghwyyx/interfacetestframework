@@ -28,10 +28,11 @@
                     "rownumbers:true,
                     url:'/showinterfacelist/',
                     method:'POST',
-                    idField:'methodname',
+                    idField:'id',
                     pagination:true,
                     selectOnCheck:false,
-                    checkOnSelect:false
+                    checkOnSelect:false,
+                    autoRowHeight:true
                     ">
 		<thead>
 			<tr>
@@ -58,15 +59,16 @@
                                 ss.push(row.methodname+";"+row.methodtype+";"+row.methodurl+";"+row.methodbody);
                                 {#ss.push(row);#}
                             }
+                            console.log(ss);
                             $.ajax({
-                                url:"/dealallrequests/",
-                                data:{'stringData':ss},
-                                type:"post",
-                                dataType:"json",
-                                success:function (data) {
+                                url: "/dealallrequests/",
+                                data: {'stringData': ss},
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
                                     console.log("传递成功！！");
                                     console.log(data);
-                                    document.location.href='d.html'
+                                    document.location.href = 'd.html'
                                 }
                             });
                         }
